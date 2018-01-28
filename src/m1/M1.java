@@ -17,7 +17,7 @@ public class M1 {
     public static void main(String[] args) {
         // TODO code application logic here        
         double x,y;
-        x=10;
+        x=1000;
         //y=Math.sqrt(x);
         //System.out.println("sqr("+x+")="+y);
         
@@ -31,9 +31,11 @@ public class M1 {
         //y=Math.pow(10,x);        
         //System.out.println("pow(10,x) ="+y);
     
-        y=Math.log(x);        
-        System.out.println("ln(x) ="+y);
+        //y=Math.log(x);        
+        //System.out.println("ln(x) ="+y);
         
+        y=Math.log10(x);        
+        System.out.println("log10(x) ="+y);
         
     }
     
