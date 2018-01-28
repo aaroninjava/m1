@@ -2,27 +2,36 @@ package m1;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class bsa {
-    final static double api=Math.PI;
-    final double y=1;
-    double z=0;
+    final static double api=Math.PI;    
+    double x,y,z;
     
-    bsa(){
+    NormalDistribution n1 = new NormalDistribution();
+    
+    /*y=n1.density(x);
+    z=n1.cumulativeProbability(x);*/
+        
+    public bsa(){
         //System.out.println(api);   
     }
-    double cdfapa(double x)
+    
+    public double cdfapa(double x)
     {                     
+        double x1,x2;
         NormalDistribution n1=new NormalDistribution();
-        n1.density(0);
-        return x;
+        //x1=n1.density(x);
+        x2=n1.cumulativeProbability(x);
+        return x2;        
+    }
+    
+    public double d1a(double x)
+    {                     
+        double x1,x2;
+        NormalDistribution n1=new NormalDistribution();
+        //x1=n1.density(x);
+        x2=n1.cumulativeProbability(x);
+        return x2;        
     }
         
-    public static double ndfa(double x){        
-        //ndf1=Math.exp(-Math.pow(x,2)/2);//Exp(-x ^ 2 / 2)
-        //ndf2=Math.sqrt(2*api);//Sqr(2 * Pi)
-        //ndf=Math.exp(Math.pow(x,2));//Exp(-x ^ 2 / 2)
-        //ndf=1/Math.sqrt(2*api);
-        return x;
-    }
     
     static class ND
     {

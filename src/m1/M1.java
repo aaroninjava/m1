@@ -6,17 +6,44 @@ public class M1 {
 
     public static void main(String[] args) {
         double x,y;
-        test();  
+        d1test();  
     } 
     
-    private static void test() {              
-   	double x,y,z;
-        NormalDistribution n1 = new NormalDistribution();
-        x=0;
-        y=n1.density(x);
-        z=n1.cumulativeProbability(x);
-        System.out.println("ndf("+x+")="+y);
-        System.out.println("cdf("+x+")="+z);
+    private static void d1test() {              
+   	double x,z,d1,d2,call,put;
+        double S,K,T,sigma,r,y;
+        S=100;
+        K=110;
+        r=0.01;
+        y=0;
+        sigma=0.3;
+        T=0.1;
+        bsa b1=new bsa();        
+        //d1 = (   Log(S / K) + (r - y + sig * sig / 2) * T) / (sig * Sqr(T))
+        //d1 =Math.log(S / K);
+        //d1 =(r - y + sigma * sigma / 2)*T;
+        //d1 =( Math.log(S/K) + (r-y + sigma * sigma / 2)* T );        
+        //d1 =(sigma * Math.sqrt(T));        
+        d1 =( Math.log(S/K) + (r-y + sigma * sigma / 2)* T ) / (sigma * Math.sqrt(T));   
+        //d2 = d1 - sig * Sqr(T)
+        d2 = d1- sigma * Math.sqrt(T) ;
+        System.out.println("d1="+d1);
+        System.out.println("d2="+d2);
+        
+        //Op_Cvalue = S * NorCdf(d1) - K * Exp(-r * T) * NorCdf(d2)
+        call = S*b1.cdfapa(d1)- K*Math.exp(-r*T)* b1.cdfapa(d2) ;
+        //Op_Pvalue = K * Exp(-r * T) * NorCdf(-d2) - S * NorCdf(-d1)
+        put = K*Math.exp(-r*T)* b1.cdfapa(-d2) - S*b1.cdfapa(-d1);
+        
+        System.out.println("call="+call);
+        System.out.println("put="+put);
+        
+        
+        
+        //z=b1.cdfapa(x);        
+        //System.out.println("cdf("+x+")="+z);
+        
+        
     }  
     
     
