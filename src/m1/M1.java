@@ -1,23 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package m1;
 import java.math.BigDecimal;
-/**
- *
- * @author A
- */
+import org.apache.commons.math3.distribution.NormalDistribution;
+
+
 public class M1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here        
         double x,y;
-        x=1000;
+        test();  
+    } 
+    
+    private static void test() {              
+        NormalDistribution normal = new NormalDistribution();  
+
+    }  
+    
+    
+}
+        /*x=1000;        
+        y=Math.floor(-3.999999);*/
         //y=Math.sqrt(x);
         //System.out.println("sqr("+x+")="+y);        
         //y=Math.abs(x);        
@@ -35,13 +36,10 @@ public class M1 {
         System.out.println("PI="+y);
         System.out.println("e="+x);       */
         
-        double a = 3.45454;
+        /*double a = 3.45454;
         double b = new BigDecimal(a)
                            .setScale(3, BigDecimal.ROUND_HALF_UP)
                            .doubleValue();
-        System.out.println("四捨五入到小數點下一位: " + b);
+        System.out.println("四捨五入到小數點下一位: " + b);*/
         
-    }
-    
-    
-}
+        //y=Math.round(3.499999);            

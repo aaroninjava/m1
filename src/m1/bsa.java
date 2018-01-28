@@ -1,13 +1,21 @@
 package m1;
+import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class bsa {
     final static double api=Math.PI;
     final double y=1;
+    double z=0;
     
     bsa(){
         //System.out.println(api);   
     }
-    
+    double cdfapa(double x)
+    {                     
+        NormalDistribution n1=new NormalDistribution();
+        n1.density(0);
+        return x;
+    }
+        
     public static double ndfa(double x){        
         //ndf1=Math.exp(-Math.pow(x,2)/2);//Exp(-x ^ 2 / 2)
         //ndf2=Math.sqrt(2*api);//Sqr(2 * Pi)
@@ -59,6 +67,8 @@ public class bsa {
                 {z=x;}
             return z;    
         }
+        
+
     }
     
     static class Math2
