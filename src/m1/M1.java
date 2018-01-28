@@ -11,6 +11,11 @@ public class M1 {
     
     private static void d1test() {              
    	double x,z,d1,d2,call,put;
+        double cdelta,pdelta;
+        double cgamma,pgamma;
+        double cvega,pvega;
+        double ctheta,ptheta;
+        double crho,prho,ry;
         double S,K,T,sigma,r,y;
         S=100;
         K=110;
@@ -27,16 +32,49 @@ public class M1 {
         d1 =( Math.log(S/K) + (r-y + sigma * sigma / 2)* T ) / (sigma * Math.sqrt(T));   
         //d2 = d1 - sig * Sqr(T)
         d2 = d1- sigma * Math.sqrt(T) ;
-        System.out.println("d1="+d1);
-        System.out.println("d2="+d2);
+        //System.out.println("d1="+d1);
+        //System.out.println("d2="+d2);
         
         //Op_Cvalue = S * NorCdf(d1) - K * Exp(-r * T) * NorCdf(d2)
-        call = S*b1.cdfapa(d1)- K*Math.exp(-r*T)* b1.cdfapa(d2) ;
+        //call = S*b1.cdfapa(d1)- K*Math.exp(-r*T)* b1.cdfapa(d2) ;
         //Op_Pvalue = K * Exp(-r * T) * NorCdf(-d2) - S * NorCdf(-d1)
-        put = K*Math.exp(-r*T)* b1.cdfapa(-d2) - S*b1.cdfapa(-d1);
+        //put = K*Math.exp(-r*T)* b1.cdfapa(-d2) - S*b1.cdfapa(-d1);        
+        //System.out.println("call="+call);
+        //System.out.println("put="+put);
         
-        System.out.println("call="+call);
-        System.out.println("put="+put);
+        /*cdelta = Math.exp(-y * T) * b1.cdfapa(d1);
+        pdelta = Math.exp(-y * T) * ( b1.cdfapa(d1)-1 );
+        System.out.println("cdelta="+ cdelta);
+        System.out.println("pdelta="+ pdelta);*/
+        
+        //gamma=Exp(-y * T) * NorPdf(d1) / (S * sig * Sqr(T))
+        /*cgamma = Math.exp(-y * T) * b1.pdfapa(d1)/(S * sigma * Math.sqrt(T));
+        pgamma = cgamma;
+        System.out.println("cdelta="+ cgamma);*/
+        
+        //S * Exp(-y * T) * NorPdf(d1) * Sqr(T)        
+        //cvega =  S * Math.exp(-y * T) * b1.pdfapa(d1)*Math.sqrt(T)  ;
+        //s * Sqr(t) * n(d1) / 100
+        /*cvega = S*Math.sqrt(T)*b1.pdfapa(d1)/100  ;//???
+        pvega =cvega;
+        System.out.println("cvega="+ cvega);       */
+                
+        //ctheta = (-s * v * n(d1) / (2 * Sqr(t)) - r * x * Exp(-r * t) * cumun(d2)) / 365 ;
+        //GBSTheta = -S * Exp(-y * T) * NorPdf(d1) * sig / (2 * Sqr(T)) + y * S * Exp(-y * T) * NorCdf(d1) - r * K * Exp(-r * T) * NorCdf(d2)
+        /*ctheta = ( -S * sigma * b1.pdfapa(d1)/(2*Math.sqrt(T) ) - r*K*Math.exp(-r*T) * b1.cdfapa(d2)) / 365 ;
+        ptheta = ( -S * sigma * b1.pdfapa(d1)/(2*Math.sqrt(T) ) + r*K*Math.exp(-r*T) * b1.cdfapa(-d2)) / 365 ;
+        System.out.println("cdelta="+ ctheta);
+        System.out.println("pdelta="+ ptheta);*/
+        
+        //r=y: -T * GBSOption(OpClass, S, K, T, sig, r, y)
+        //crho = T * K * Exp(-r * T) * NorCdf(d2)
+        //prho =-T * K * Exp(-r * T) * NorCdf(-d2)
+        //ry= -T * GBSOption(OpClass, S, K, T, sig, r, y)
+        crho = T * K * Math.exp(-r * T) * b1.cdfapa(d2);
+        prho = -T * K * Math.exp(-r * T) * b1.cdfapa(-d2);
+        //System.out.println("r=y"+ ry);
+        System.out.println("crho="+ crho);
+        System.out.println("prho="+ prho);
         
         
         

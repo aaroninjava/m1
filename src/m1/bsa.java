@@ -22,6 +22,14 @@ public class bsa {
         x2=n1.cumulativeProbability(x);
         return x2;        
     }
+    public double pdfapa(double x)
+    {                     
+        double x1,x2;
+        NormalDistribution n1=new NormalDistribution();
+        x1=n1.density(x);
+        //x2=n1.cumulativeProbability(x);
+        return x1;        
+    }
     
     public double d1a(double x)
     {                     
