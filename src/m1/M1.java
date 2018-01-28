@@ -2,7 +2,6 @@ package m1;
 import java.math.BigDecimal;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
-
 public class M1 {
 
     public static void main(String[] args) {
@@ -11,8 +10,13 @@ public class M1 {
     } 
     
     private static void test() {              
-        NormalDistribution normal = new NormalDistribution();  
-
+   	double x,y,z;
+        NormalDistribution n1 = new NormalDistribution();
+        x=0;
+        y=n1.density(x);
+        z=n1.cumulativeProbability(x);
+        System.out.println("ndf("+x+")="+y);
+        System.out.println("cdf("+x+")="+z);
     }  
     
     
