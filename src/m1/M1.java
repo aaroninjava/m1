@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package m1;
-
+import java.math.BigDecimal;
 /**
  *
  * @author A
@@ -19,23 +19,27 @@ public class M1 {
         double x,y;
         x=1000;
         //y=Math.sqrt(x);
-        //System.out.println("sqr("+x+")="+y);
-        
+        //System.out.println("sqr("+x+")="+y);        
         //y=Math.abs(x);        
-        //System.out.println("abs("+x+")="+y);
-        
-        
+        //System.out.println("abs("+x+")="+y);                
         //y=Math.exp(x);        
-        //System.out.println("exp("+x+")="+y);
-        
+        //System.out.println("exp("+x+")="+y);        
         //y=Math.pow(10,x);        
-        //System.out.println("pow(10,x) ="+y);
-    
+        //System.out.println("pow(10,x) ="+y);    
         //y=Math.log(x);        
-        //System.out.println("ln(x) ="+y);
+        //System.out.println("ln(x) ="+y);        
+        //y=Math.log10(x);        
+        //System.out.println("log10(x) ="+y);
+        /*x=Math.E;    
+        y=Math.PI;            
+        System.out.println("PI="+y);
+        System.out.println("e="+x);       */
         
-        y=Math.log10(x);        
-        System.out.println("log10(x) ="+y);
+        double a = 3.45454;
+        double b = new BigDecimal(a)
+                           .setScale(3, BigDecimal.ROUND_HALF_UP)
+                           .doubleValue();
+        System.out.println("四捨五入到小數點下一位: " + b);
         
     }
     
