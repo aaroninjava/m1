@@ -5,9 +5,46 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 public class M1 {
 
     public static void main(String[] args) {
-        double x,y;
-        d1test();  
+        double x,z;
+        double S,K,T,sigma,r,y;        
+        //d1test();  
+        S=100;
+        K=110;
+        r=0.01;
+        y=0;
+        sigma=0.3;
+        T=0.1;
+        //bsa1 b = new bsa1(S,K,T,sigma,r,y);
+        //z=b.xx();
+        bsa1 b = new bsa1(S,K,T,sigma,r,y);
+        z=b.dd1();        
+        System.out.println("main_d1="+z);
+        //dd1(S,K,T,sigma,r,y) ;  
     } 
+    
+    //public static void dd1(double S,double K,double T,double sigma,double r,double y) 
+    public static void dd1(double S,double K,double T,double sigma,double r,double y) 
+    {
+        double x,z,d1,d2,call,put;
+        //double cdelta,pdelta;
+        //double cgamma,pgamma;
+        //double cvega,pvega;
+        //double ctheta,ptheta;
+        //double crho,prho,ry;
+        //double S,K,T,sigma,r,y;
+        //double K,T,sigma,r,y;
+        //S=100;
+        //K=110;
+        //r=0.01;
+        //y=0;
+        //sigma=0.3;
+        //T=0.1;
+        //bsa b1=new bsa();  
+        d1 =( Math.log(S/K) + (r-y + sigma * sigma / 2)* T ) / (sigma * Math.sqrt(T));          
+        System.out.println("d1="+d1);
+        
+    }
+    
     
     private static void d1test() {              
    	double x,z,d1,d2,call,put;
