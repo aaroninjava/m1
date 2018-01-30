@@ -5,7 +5,7 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 public class M1 {
 
     public static void main(String[] args) {
-        double x,z;
+        double x,z1,z2;
         double S,K,T,sigma,r,y;        
         //d1test();  
         S=100;
@@ -16,9 +16,19 @@ public class M1 {
         T=0.1;
         //bsa1 b = new bsa1(S,K,T,sigma,r,y);
         //z=b.xx();
-        bsa1 b = new bsa1(S,K,T,sigma,r,y);
-        z=b.dd1();        
-        System.out.println("main_d1="+z);
+        bsa1 b = new bsa1(S,K,T,sigma,r,y);                
+        
+        System.out.println("d1="+b.d1);
+        System.out.println("d2="+b.d2);
+        System.out.println("pdf(d1)="+b.pdf(b.d1));
+        System.out.println("pdf(d2)="+b.pdf(b.d2));
+        System.out.println("cdf(d1)="+b.cdf(b.d1));
+        System.out.println("cdf(d2)="+b.cdf(b.d2));        
+        System.out.println("call="+b.call());
+        System.out.println("put="+b.put());
+        System.out.println("deltaofCall="+b.delta("C"));
+        System.out.println("deltaofPut="+b.delta("P"));
+        System.out.println("gamma="+b.gamma());
         //dd1(S,K,T,sigma,r,y) ;  
     } 
     
