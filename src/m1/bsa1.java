@@ -100,14 +100,18 @@ public class bsa1 {
         return theta1;
     }
     
-    public double rho() 
+    public double rho(String CP) 
     {
-        double gamma1;
-        gamma1 = Math.exp(-y * T) * pdf(d1)/(S * sigma * Math.sqrt(T));
-        System.out.println("rho="+gamma1); 
-        return gamma1;
-    }
-    
+        double rho1;
+        if (CP=="C")
+            {rho1 = rho1 = T * K * Math.exp(-r*T) * cdf(d2) ;}//要除以100% ?
+        else
+            {rho1 = -T * K * Math.exp(-r*T) * cdf(-d2);} //要除以100% ?
+/*        //crho = T * K * Exp(-r * T) * NorCdf(d2)
+        //prho =-T * K * Exp(-r * T) * NorCdf(-d2)*/                
+        System.out.println("rho="+rho1); 
+        return rho1;
+    }    
     
 //public void double xx(double x) 
     public double xx() 

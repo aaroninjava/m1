@@ -32,6 +32,8 @@ public class M1 {
         System.out.println("vega="+b.vega());
         //System.out.println("theta="+b.theta("C"));
         //System.out.println("theta="+b.theta("P"));
+        System.out.println("rho="+b.rho("C"));
+        System.out.println("rho="+b.rho("P"));
         
         //dd1(S,K,T,sigma,r,y) ;  
     } 
