@@ -72,20 +72,32 @@ public class bsa1 {
         return gamma1;
     }
     
-    public double vega() //call.put相同
+    public double vega() //call.put相同..要除以100% ??
     {
         double vega1=0;
         //gamma1 = Math.exp(-y * T) * pdf(d1)/(S * sigma * Math.sqrt(T));
-        System.out.println("gamma="+vega1); 
+        vega1 =  S * Math.exp(-y*T) * pdf(d1) * Math.sqrt(T)  ;
+        System.out.println("vega="+vega1); 
         return vega1;
     }
     
-    public double theta() //call.put相同
+    public double theta(String CP) 
     {
-        double gamma1;
-        gamma1 = Math.exp(-y * T) * pdf(d1)/(S * sigma * Math.sqrt(T));
-        System.out.println("theta="+gamma1); 
-        return gamma1;
+        //double gamma1;
+        //gamma1 = Math.exp(-y * T) * pdf(d1)/(S * sigma * Math.sqrt(T));
+        
+        //ctheta = ( -S * sigma * b1.pdfapa(d1)/(2*Math.sqrt(T) ) - r*K*Math.exp(-r*T) * b1.cdfapa(d2)) / 365 ;
+        double theta1;
+        if (CP=="C")
+            {theta1 = ( -S*sigma*pdf(d1) / (2*Math.sqrt(T))  
+		    -   r*K*Math.exp(-r*T) * cdf(d2)    )  ;}//要除以365天??
+        else
+            {theta1 = ( -S*sigma*pdf(d1) / (2*Math.sqrt(T))  
+		    +   r*K*Math.exp(-r*T) * cdf(-d2)    ) ;} //要除以365天??
+        //ptheta = ( -S * sigma * b1.pdfapa(d1)/(2*Math.sqrt(T) ) + r*K*Math.exp(-r*T) * b1.cdfapa(-d2)) / 365 ;
+                
+        System.out.println("theta="+theta1); 
+        return theta1;
     }
     
     public double rho() 

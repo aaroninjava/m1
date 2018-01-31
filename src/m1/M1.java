@@ -29,6 +29,10 @@ public class M1 {
         System.out.println("deltaofCall="+b.delta("C"));
         System.out.println("deltaofPut="+b.delta("P"));
         System.out.println("gamma="+b.gamma());
+        System.out.println("vega="+b.vega());
+        //System.out.println("theta="+b.theta("C"));
+        //System.out.println("theta="+b.theta("P"));
+        
         //dd1(S,K,T,sigma,r,y) ;  
     } 
     
@@ -117,11 +121,11 @@ public class M1 {
         //crho = T * K * Exp(-r * T) * NorCdf(d2)
         //prho =-T * K * Exp(-r * T) * NorCdf(-d2)
         //ry= -T * GBSOption(OpClass, S, K, T, sig, r, y)
-        crho = T * K * Math.exp(-r * T) * b1.cdfapa(d2);
+        /*crho = T * K * Math.exp(-r * T) * b1.cdfapa(d2);
         prho = -T * K * Math.exp(-r * T) * b1.cdfapa(-d2);
         //System.out.println("r=y"+ ry);
         System.out.println("crho="+ crho);
-        System.out.println("prho="+ prho);
+        System.out.println("prho="+ prho);*/
         
         
         
